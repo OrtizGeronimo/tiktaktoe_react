@@ -1,0 +1,8 @@
+.Casilla{
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    width: 150px;
+    height: 150px;
+    align-content: center;
+}

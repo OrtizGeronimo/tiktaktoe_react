@@ -2,7 +2,12 @@ import React, { useContext, useState } from 'react'
 import "../styles/casillas.css"
 import {EstadoGlobal} from "../App"
 
-export default function Casilla(props) {
+interface Props{
+    id: number,
+    actualizarJugador: () => void
+}
+
+export default function Casilla(props: Props) {
   
     const actualizarJugador = props.actualizarJugador;
 
@@ -11,8 +16,8 @@ export default function Casilla(props) {
     const [marcada, setearCasilla] = useState("");
     
     const clickCasilla = () => {
-            if(marcada == ""){
-                if(jugadorActual == true){
+            if(marcada === ""){
+                if(jugadorActual){
                     setearCasilla("X");
                 } else {
                     setearCasilla("O");

@@ -2,22 +2,27 @@ import React, { useContext, useState } from 'react'
 import "../styles/casillas.css"
 import {EstadoGlobal} from "../App"
 
+
+
 export default function Casilla(props) {
   
     const actualizarJugador = props.actualizarJugador;
 
     const jugadorActual = useContext(EstadoGlobal);
 
-    const [marcada, setearCasilla] = useState("");
+    const [casilla, setCasilla] = useState("");
     
     const clickCasilla = () => {
-            if(marcada == ""){
+            if(casilla === ""){
                 if(jugadorActual == true){
-                    setearCasilla("X");
+                    setCasilla("X");
+                    actualizarJugador(props.id, "X");
+
                 } else {
-                    setearCasilla("O");
+                    setCasilla("O");
+                    actualizarJugador(props.id, "O");
                 }
-                actualizarJugador();
+                
             }
             
     };
@@ -25,7 +30,7 @@ export default function Casilla(props) {
 
     return (
     <div className='Casilla' onClick={clickCasilla}>
-        <h1>{marcada}</h1>
+        <h1>{casilla}</h1>
     </div>
   )
 }
